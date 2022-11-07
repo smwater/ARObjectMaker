@@ -29,7 +29,7 @@ public class PlaceObject : MonoBehaviour
     private void Awake()
     {
         _camera = GetComponent<Camera>();
-        _arRaycastManager = GetComponent<ARRaycastManager>();
+        _arRaycastManager = GetComponentInParent<ARRaycastManager>();
         _objects = new GameObject[_objectMaxCount];
     }
 
@@ -40,16 +40,16 @@ public class PlaceObject : MonoBehaviour
         {
             return;
         }
-
+        
         // 동시에 여러 손가락으로 터치했을 경우, 첫번째 터치만 인식
         Touch touch = Input.GetTouch(0);
-
+        
         // 첫번째 터치에 한해, UI 뒤쪽 인식 방지
-        if (EventSystem.current.IsPointerOverGameObject(0))
-        {
-            return;
-        }
-
+        //if (EventSystem.current.IsPointerOverGameObject(0))
+        //{
+        //    return;
+        //}
+        
         // GetKeyDown과 비슷
         if (touch.phase == TouchPhase.Began)
         {
@@ -75,10 +75,10 @@ public class PlaceObject : MonoBehaviour
                 // return이 없으면 아래 AR raycast로 Object가 추가로 생성될 수 있음
                 return;
             }
-
+            
             List<ARRaycastHit> arHits = new List<ARRaycastHit>();
             ARRaycastHit arHit;
-
+            
             // AR raycast로 AR Plane을 감지
             if (_arRaycastManager.Raycast(ray, arHits, TrackableType.PlaneWithinPolygon | TrackableType.FeaturePoint))
             {
