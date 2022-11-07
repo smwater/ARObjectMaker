@@ -7,6 +7,7 @@ public class MyObject : MonoBehaviour
 {
     public ARAnchor ARAnchor { get; private set; }
     public int Index { get; private set; }
+    public string Name { get; private set; }
 
     [SerializeField] private GameObject _buttonUI;
     private ARAnchorManager _arAnchorManager;
@@ -17,12 +18,21 @@ public class MyObject : MonoBehaviour
     }
 
     /// <summary>
-    /// PlaecObject 스크립트에서 오브젝트 각각의 인덱스를 조정하기 위한 메서드
+    /// 클래스 외부에서 오브젝트 인덱스를 변경하기 위한 메서드
     /// </summary>
-    /// <param name="value">변경할 인덱스의 값</param>
-    public void SetIndex(int value)
+    /// <param name="index">변경할 인덱스의 값</param>
+    public void SetIndex(int index)
     {
-        Index = value;
+        Index = index;
+    }
+
+    /// <summary>
+    /// 클래스 외부에서 오브젝트 이름을 변경하기 위한 메서드
+    /// </summary>
+    /// <param name="name">변경할 이름</param>
+    public void SetName(string name)
+    {
+        Name = name;
     }
 
     /// <summary>
