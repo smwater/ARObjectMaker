@@ -18,6 +18,15 @@ public class MyObject : MonoBehaviour
     }
 
     /// <summary>
+    /// ARAnchor를 해제하고 오브젝트를 삭제하는 메서드
+    /// </summary>
+    public void Delete()
+    {
+        ARAnchor = null;
+        Destroy(gameObject);
+    }
+
+    /// <summary>
     /// 클래스 외부에서 오브젝트 인덱스를 변경하기 위한 메서드
     /// </summary>
     /// <param name="index">변경할 인덱스의 값</param>

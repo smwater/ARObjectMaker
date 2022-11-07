@@ -750,7 +750,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9002496319454073287}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6920457184234896431}
+        m_TargetAssemblyTypeName: ConfirmButton, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6920457184234896431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1007,6 +1019,7 @@ GameObject:
   - component: {fileID: 5887555912532922497}
   - component: {fileID: 6551327892286473927}
   - component: {fileID: 395269998192594254}
+  - component: {fileID: 6310192554532530018}
   m_Layer: 5
   m_Name: Delete Button
   m_TagString: Untagged
@@ -1115,7 +1128,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6551327892286473927}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6310192554532530018}
+        m_TargetAssemblyTypeName: DeleteButton, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6310192554532530018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953920276246483987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b79b30cdb227d418d8dc0dfb07e3c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _object: {fileID: 5607680212765156999}
 --- !u!1 &6782470788748945878
 GameObject:
   m_ObjectHideFlags: 0
