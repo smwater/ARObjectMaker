@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6771929250675311896}
   - component: {fileID: 141393723024559057}
   - component: {fileID: 208827862286720532}
+  - component: {fileID: 4212775714795778025}
   m_Layer: 9
   m_Name: Name Button
   m_TagString: Untagged
@@ -121,6 +122,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4212775714795778025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416097964408269459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &528974232795053575
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +662,7 @@ GameObject:
   - component: {fileID: 2871843162516592144}
   - component: {fileID: 9002496319454073287}
   - component: {fileID: 9063737858504461104}
+  - component: {fileID: 4785219621404978742}
   - component: {fileID: 6920457184234896431}
   m_Layer: 9
   m_Name: Confirm Button
@@ -763,6 +785,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4785219621404978742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4679952069416062601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &6920457184234896431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,6 +830,7 @@ GameObject:
   - component: {fileID: 7878396906284702899}
   - component: {fileID: 5941790965373510382}
   - component: {fileID: 3180151592130526581}
+  - component: {fileID: 4051758035531912792}
   m_Layer: 9
   m_Name: Height Button
   m_TagString: Untagged
@@ -897,6 +940,26 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4051758035531912792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5176993873852079594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &5607680212765156999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,6 +1082,7 @@ GameObject:
   - component: {fileID: 5887555912532922497}
   - component: {fileID: 6551327892286473927}
   - component: {fileID: 395269998192594254}
+  - component: {fileID: 6558827509903010416}
   - component: {fileID: 6310192554532530018}
   m_Layer: 9
   m_Name: Delete Button
@@ -1141,6 +1205,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6558827509903010416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953920276246483987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &6310192554532530018
 MonoBehaviour:
   m_ObjectHideFlags: 0
