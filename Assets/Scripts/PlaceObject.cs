@@ -124,4 +124,18 @@ public class PlaceObject : MonoBehaviour
     {
         return _objects[index].transform.position;
     }
+
+    /// <summary>
+    /// 해제된 오브젝트보다 index가 높은 오브젝트들을 정리해주는 메서드
+    /// </summary>
+    /// <param name="index">사용 해제된 오브젝트의 index</param>
+    public void FreeIndex(int index)
+    {
+        _objectUsedCount--;
+        for (int i = index; i < _objectUsedCount; i++)
+        {
+            _objects[i + 1].GetComponent<MyObject>().SetIndex(i);
+        }
+        _objectIndex = _objectUsedCount;
+    }
 }

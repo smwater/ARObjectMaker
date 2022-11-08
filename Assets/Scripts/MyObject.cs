@@ -24,8 +24,10 @@ public class MyObject : MonoBehaviour
     /// </summary>
     public void Delete()
     {
-        ARAnchor = null;
         _placeObject.ChangeMode(Mode.Placement);
+        _placeObject.FreeIndex(Index);
+
+        ARAnchor = null;
         Destroy(gameObject);
     }
 
