@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/DistanceMeasurement.unity
-    guid: 4aa495b2977d8f94f9599f4dea2c9417
+    path: Assets/Scenes/MainScene.unity
+    guid: 9cb21d7bdf5b8b64c8109d250d852354
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 44f7c7f750d0ea64fa51cd2c22f5f2e8, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: dd32d0889096be74aab466372b15577b, type: 2}
