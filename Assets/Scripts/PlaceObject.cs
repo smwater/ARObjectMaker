@@ -105,4 +105,13 @@ public class PlaceObject : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// 클래스 외부에서 모드를 변경하기 위한 메서드
+    /// </summary>
+    /// <param name="mode">변경할 모드</param>
+    public void ChangeMode(Mode mode)
+    {
+        _currentMode = mode;
+    }
 }

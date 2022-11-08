@@ -11,10 +11,12 @@ public class MyObject : MonoBehaviour
 
     [SerializeField] private GameObject _buttonUI;
     private ARAnchorManager _arAnchorManager;
+    private PlaceObject _placeObject;
 
     private void Awake()
     {
         _arAnchorManager = GameObject.Find("AR Session Origin").GetComponent<ARAnchorManager>();
+        _placeObject = _arAnchorManager.gameObject.GetComponentInChildren<PlaceObject>();
     }
 
     /// <summary>
@@ -23,6 +25,7 @@ public class MyObject : MonoBehaviour
     public void Delete()
     {
         ARAnchor = null;
+        _placeObject.ChangeMode(Mode.Placement);
         Destroy(gameObject);
     }
 
