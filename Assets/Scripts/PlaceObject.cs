@@ -14,6 +14,8 @@ public enum Mode
 
 public class PlaceObject : MonoBehaviour
 {
+    public int ObjectIndex { get; private set; }
+
     [SerializeField] private GameObject _objectPrefab;
     private GameObject[] _objects;
 
@@ -21,16 +23,17 @@ public class PlaceObject : MonoBehaviour
     private ARRaycastManager _arRaycastManager;
 
     private int _objectMaxCount = 40;
-    private int _objectIndex = 0;
     private int _objectUsedCount = 0;
 
     private Mode _currentMode = Mode.Placement;
 
     private void Awake()
     {
+        ObjectIndex = 0;
+        _objects = new GameObject[_objectMaxCount];
+
         _camera = GetComponent<Camera>();
         _arRaycastManager = GetComponentInParent<ARRaycastManager>();
-        _objects = new GameObject[_objectMaxCount];
     }
 
     private void Update()
@@ -93,12 +96,12 @@ public class PlaceObject : MonoBehaviour
                 arHit = arHits[0];
 
                 // 감지된 위치에 Object를 생성하고
-                _objects[_objectIndex] = Instantiate(_objectPrefab, arHit.pose.position + new Vector3(0f, 0.2f), arHit.pose.rotation);
+                _objects[ObjectIndex] = Instantiate(_objectPrefab, arHit.pose.position + new Vector3(0f, 0.2f), arHit.pose.rotation);
                 // local Anchor를 생성
-                _objects[_objectIndex].GetComponent<MyObject>().CreateAnchor(arHit);
+                _objects[ObjectIndex].GetComponent<MyObject>().CreateAnchor(arHit);
                 // 이 Object의 index를 넘겨줌
-                _objects[_objectIndex].GetComponent<MyObject>().SetIndex(_objectIndex);
-                _objectIndex = (_objectIndex + 1) % _objectMaxCount;
+                _objects[ObjectIndex].GetComponent<MyObject>().SetIndex(ObjectIndex);
+                ObjectIndex = (ObjectIndex + 1) % _objectMaxCount;
                 _objectUsedCount++;
 
                 _currentMode = Mode.Setting;
@@ -136,6 +139,6 @@ public class PlaceObject : MonoBehaviour
         {
             _objects[i + 1].GetComponent<MyObject>().SetIndex(i);
         }
-        _objectIndex = _objectUsedCount;
+        ObjectIndex = _objectUsedCount;
     }
 }
