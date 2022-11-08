@@ -14,6 +14,7 @@ public class Radar : MonoBehaviour
         _sphereCollider = GetComponent<SphereCollider>();
         _myObject = GetComponentInParent<MyObject>();
 
+        // 지정 범위로 콜라이더 크기 확대
         _sphereCollider.radius = RADIUS;
     }
 
@@ -21,8 +22,8 @@ public class Radar : MonoBehaviour
     {
         if (other.CompareTag("Object"))
         {
+            // 오브젝트가 범위 내에 들어올 때마다 상승
             _myObject.DetectedObjectCountCountUp();
-            Debug.Log(_myObject.DetectedObjectCount);
         }
     }
 
@@ -30,8 +31,8 @@ public class Radar : MonoBehaviour
     {
         if (other.CompareTag("Object"))
         {
+            // 오브젝트가 범위 내에서 사라질 때마다 하락
             _myObject.DetectedObjectCountCountDown();
-            Debug.Log(_myObject.DetectedObjectCount);
         }
     }
 }

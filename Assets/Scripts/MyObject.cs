@@ -32,9 +32,13 @@ public class MyObject : MonoBehaviour
     {
         _placeObject.ChangeMode(Mode.Placement);
         _placeObject.FreeIndex(Index);
+
+        // OnTriggerExit에 감지되기 위해 오브젝트를 이동시킴
         transform.position = new Vector3(transform.position.x, UNDER_THE_CRUST, transform.position.z);
 
         ARAnchor = null;
+        
+        // 즉시 삭제되면 OnTriggerExit에 감지되지 못해 시간차를 둠
         Destroy(gameObject, 0.1f);
     }
 
