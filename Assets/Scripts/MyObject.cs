@@ -11,6 +11,7 @@ public class MyObject : MonoBehaviour
     public int Index { get; private set; }
     public int DetectedObjectCount { get; private set; }
     public string Name { get; private set; }
+    public bool IsConnected { get; private set; }
 
     [SerializeField] private GameObject _buttonUI;
     private ARAnchorManager _arAnchorManager;
@@ -23,6 +24,7 @@ public class MyObject : MonoBehaviour
 
         DetectedObjectCount = 0;
         Name = "Default";
+        IsConnected = false;
     }
 
     /// <summary>
@@ -94,5 +96,13 @@ public class MyObject : MonoBehaviour
         {
             ARAnchor = _arAnchorManager.AttachAnchor(arPlane, arHit.pose);
         }
+    }
+
+    /// <summary>
+    /// 해당 오브젝트가 클라우드 앵커와 연결되었을 때, 사용하는 메서드
+    /// </summary>
+    public void ConnectCloudAnchor()
+    {
+        IsConnected = true;
     }
 }

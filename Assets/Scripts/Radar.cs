@@ -22,6 +22,12 @@ public class Radar : MonoBehaviour
     {
         if (other.CompareTag("Object"))
         {
+            MyObject otherObject = other.GetComponent<MyObject>();
+            if (otherObject.IsConnected)
+            {
+                return;
+            }
+
             // 오브젝트가 범위 내에 들어올 때마다 상승
             _myObject.DetectedObjectCountCountUp();
         }
