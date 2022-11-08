@@ -5,6 +5,8 @@ using UnityEngine.XR.ARFoundation;
 
 public class MyObject : MonoBehaviour
 {
+    private const float UNDER_THE_CRUST = -20f;
+
     public ARAnchor ARAnchor { get; private set; }
     public int Index { get; private set; }
     public int ConnectedObjectCount { get; private set; }
@@ -30,9 +32,10 @@ public class MyObject : MonoBehaviour
     {
         _placeObject.ChangeMode(Mode.Placement);
         _placeObject.FreeIndex(Index);
+        transform.position = new Vector3(transform.position.x, UNDER_THE_CRUST, transform.position.z);
 
         ARAnchor = null;
-        Destroy(gameObject);
+        Destroy(gameObject, 0.1f);
     }
 
     /// <summary>
@@ -53,11 +56,17 @@ public class MyObject : MonoBehaviour
         Name = name;
     }
 
+    /// <summary>
+    /// ConnectedObjectCount를 외부에서 올려주는 메서드
+    /// </summary>
     public void ConnectedObjectCountCountUp()
     {
         ConnectedObjectCount++;
     }
 
+    /// <summary>
+    /// ConnectedObjectCount를 외부에서 내려주는 메서드
+    /// </summary>
     public void ConnectedObjectCountCountDown()
     {
         ConnectedObjectCount--;
