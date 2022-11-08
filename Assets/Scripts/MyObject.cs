@@ -7,6 +7,7 @@ public class MyObject : MonoBehaviour
 {
     public ARAnchor ARAnchor { get; private set; }
     public int Index { get; private set; }
+    public int ConnectedObjectCount { get; private set; }
     public string Name { get; private set; }
 
     [SerializeField] private GameObject _buttonUI;
@@ -17,6 +18,9 @@ public class MyObject : MonoBehaviour
     {
         _arAnchorManager = GameObject.Find("AR Session Origin").GetComponent<ARAnchorManager>();
         _placeObject = _arAnchorManager.gameObject.GetComponentInChildren<PlaceObject>();
+
+        ConnectedObjectCount = 0;
+        Name = "Default";
     }
 
     /// <summary>
@@ -47,6 +51,16 @@ public class MyObject : MonoBehaviour
     public void SetName(string name)
     {
         Name = name;
+    }
+
+    public void ConnectedObjectCountCountUp()
+    {
+        ConnectedObjectCount++;
+    }
+
+    public void ConnectedObjectCountCountDown()
+    {
+        ConnectedObjectCount--;
     }
 
     /// <summary>
