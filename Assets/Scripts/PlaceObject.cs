@@ -43,13 +43,13 @@ public class PlaceObject : MonoBehaviour
         
         // 동시에 여러 손가락으로 터치했을 경우, 첫번째 터치만 인식
         Touch touch = Input.GetTouch(0);
-        
+
         // 첫번째 터치에 한해, UI 뒤쪽 인식 방지
-        //if (EventSystem.current.IsPointerOverGameObject(0))
-        //{
-        //    return;
-        //}
-        
+        if (EventSystem.current.IsPointerOverGameObject(0))
+        {
+            return;
+        }
+
         // GetKeyDown과 비슷
         if (touch.phase == TouchPhase.Began)
         {
@@ -113,5 +113,15 @@ public class PlaceObject : MonoBehaviour
     public void ChangeMode(Mode mode)
     {
         _currentMode = mode;
+    }
+
+    /// <summary>
+    /// 클래스 외부에서 특정 오브젝트의 위치를 구하기 위한 메서드
+    /// </summary>
+    /// <param name="index">구하고 싶은 오브젝트의 인덱스</param>
+    /// <returns>오브젝트의 position</returns>
+    public Vector3 ObjectPosition(int index)
+    {
+        return _objects[index].transform.position;
     }
 }
