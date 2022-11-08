@@ -21,8 +21,8 @@ public class Radar : MonoBehaviour
     {
         if (other.CompareTag("Object"))
         {
-            _myObject.ConnectedObjectCountCountUp();
-            Debug.Log(_myObject.ConnectedObjectCount);
+            _myObject.DetectedObjectCountCountUp();
+            Debug.Log(_myObject.DetectedObjectCount);
         }
     }
 
@@ -30,8 +30,8 @@ public class Radar : MonoBehaviour
     {
         if (other.CompareTag("Object"))
         {
-            _myObject.ConnectedObjectCountCountDown();
-            Debug.Log(_myObject.ConnectedObjectCount);
+            _myObject.DetectedObjectCountCountDown();
+            Debug.Log(_myObject.DetectedObjectCount);
         }
     }
 }

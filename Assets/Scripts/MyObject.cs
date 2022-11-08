@@ -9,7 +9,7 @@ public class MyObject : MonoBehaviour
 
     public ARAnchor ARAnchor { get; private set; }
     public int Index { get; private set; }
-    public int ConnectedObjectCount { get; private set; }
+    public int DetectedObjectCount { get; private set; }
     public string Name { get; private set; }
 
     [SerializeField] private GameObject _buttonUI;
@@ -21,7 +21,7 @@ public class MyObject : MonoBehaviour
         _arAnchorManager = GameObject.Find("AR Session Origin").GetComponent<ARAnchorManager>();
         _placeObject = _arAnchorManager.gameObject.GetComponentInChildren<PlaceObject>();
 
-        ConnectedObjectCount = 0;
+        DetectedObjectCount = 0;
         Name = "Default";
     }
 
@@ -57,19 +57,19 @@ public class MyObject : MonoBehaviour
     }
 
     /// <summary>
-    /// ConnectedObjectCount를 외부에서 올려주는 메서드
+    /// DetectedObjectCount를 외부에서 올려주는 메서드
     /// </summary>
-    public void ConnectedObjectCountCountUp()
+    public void DetectedObjectCountCountUp()
     {
-        ConnectedObjectCount++;
+        DetectedObjectCount++;
     }
 
     /// <summary>
-    /// ConnectedObjectCount를 외부에서 내려주는 메서드
+    /// DetectedObjectCount를 외부에서 내려주는 메서드
     /// </summary>
-    public void ConnectedObjectCountCountDown()
+    public void DetectedObjectCountCountDown()
     {
-        ConnectedObjectCount--;
+        DetectedObjectCount--;
     }
 
     /// <summary>
