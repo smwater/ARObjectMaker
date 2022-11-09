@@ -10,5 +10,6 @@ public class SaveButton : MonoBehaviour
     {
         _placeObject.SaveCountArray();
         AnchorManager.Instance.SortDetectedObjectCounts();
+        AnchorManager.Instance.ConnectObjects();
     }
 }

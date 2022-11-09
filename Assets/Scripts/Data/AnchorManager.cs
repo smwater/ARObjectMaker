@@ -8,6 +8,11 @@ public class AnchorManager : SingletonBehaviour<AnchorManager>
     // 오브젝트에 감지된 다른 오브젝트의 개수를 저장하는 list
     public List<(int, int)> DetectedObjectCounts { get; private set; }
 
+    private bool[] _isInputted;
+    private Dictionary<int, List<int>> _connectObjectDictionary = new Dictionary<int, List<int>>();
+
+    [SerializeField] private PlaceObject _placeObject;
+
     private void Start()
     {
         DetectedObjectCounts = new List<(int, int)>();
@@ -54,6 +59,37 @@ public class AnchorManager : SingletonBehaviour<AnchorManager>
         for (int i = 0; i < DetectedObjectCounts.Count; i++)
         {
             Debug.Log($"index : {DetectedObjectCounts[i].Item1}, count : {DetectedObjectCounts[i].Item2}");
+        }
+    }
+
+    public void ConnectObjects()
+    {
+        _isInputted = new bool[DetectedObjectCounts.Count];
+
+        for (int i = 0; i < DetectedObjectCounts.Count; i++)
+        {
+            if (_isInputted[i])
+            {
+                Debug.Log($"{i}번은 이미 딕셔너리에 넣은 인덱스");
+                continue;
+            }
+
+            _isInputted[i] = true;
+
+            int objectIndex = DetectedObjectCounts[i].Item1;
+            List<int> detectedObjects = _placeObject.Objects[objectIndex].GetComponentInChildren<Radar>().DetectedObjectIndexes;
+
+            _connectObjectDictionary.Add(objectIndex, detectedObjects);
+            
+            for (int j = 0; j < detectedObjects.Count; j++)
+            {
+                _isInputted[j] = true;
+            }
+        }
+
+        for (int i = 0; i < _connectObjectDictionary.Count; i++)
+        {
+            Debug.Log($"key : {i} / item : {_connectObjectDictionary[i]}");
         }
     }
 }

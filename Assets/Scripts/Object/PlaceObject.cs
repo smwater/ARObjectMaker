@@ -15,9 +15,9 @@ public enum Mode
 public class PlaceObject : MonoBehaviour
 {
     public int ObjectIndex { get; private set; }
+    public GameObject[] Objects { get; private set; }
 
     [SerializeField] private GameObject _objectPrefab;
-    private GameObject[] _objects;
 
     private Camera _camera;
     private ARRaycastManager _arRaycastManager;
@@ -30,7 +30,7 @@ public class PlaceObject : MonoBehaviour
     private void Awake()
     {
         ObjectIndex = 0;
-        _objects = new GameObject[_objectMaxCount];
+        Objects = new GameObject[_objectMaxCount];
 
         _camera = GetComponent<Camera>();
         _arRaycastManager = GetComponentInParent<ARRaycastManager>();
@@ -96,11 +96,11 @@ public class PlaceObject : MonoBehaviour
                 arHit = arHits[0];
 
                 // 감지된 위치에 Object를 생성하고
-                _objects[ObjectIndex] = Instantiate(_objectPrefab, arHit.pose.position + new Vector3(0f, 0.2f), arHit.pose.rotation);
+                Objects[ObjectIndex] = Instantiate(_objectPrefab, arHit.pose.position + new Vector3(0f, 0.2f), arHit.pose.rotation);
                 // local Anchor를 생성
-                _objects[ObjectIndex].GetComponent<MyObject>().CreateAnchor(arHit);
+                Objects[ObjectIndex].GetComponent<MyObject>().CreateAnchor(arHit);
                 // 이 Object의 index를 넘겨줌
-                _objects[ObjectIndex].GetComponent<MyObject>().SetIndex(ObjectIndex);
+                Objects[ObjectIndex].GetComponent<MyObject>().SetIndex(ObjectIndex);
                 ObjectIndex = (ObjectIndex + 1) % _objectMaxCount;
                 _objectUsedCount++;
 
@@ -125,7 +125,7 @@ public class PlaceObject : MonoBehaviour
     /// <returns>오브젝트의 position</returns>
     public Vector3 ObjectPosition(int index)
     {
-        return _objects[index].transform.position;
+        return Objects[index].transform.position;
     }
 
     /// <summary>
@@ -138,7 +138,7 @@ public class PlaceObject : MonoBehaviour
 
         for (int i = index; i < _objectUsedCount; i++)
         {
-            _objects[i + 1].GetComponent<MyObject>().SetIndex(i);
+            Objects[i + 1].GetComponent<MyObject>().SetIndex(i);
         }
 
         ObjectIndex = _objectUsedCount;
@@ -162,7 +162,7 @@ public class PlaceObject : MonoBehaviour
         for (int i = 0; i < _objectUsedCount; i++)
         {
             // 카운트를 배열로 저장
-            countArray[i] = _objects[i].GetComponent<MyObject>().DetectedObjectCount;
+            countArray[i] = Objects[i].GetComponent<MyObject>().DetectedObjectCount;
         }
 
         // 저장한 것을 AnchorManager로 옮김
