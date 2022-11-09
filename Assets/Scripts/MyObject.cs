@@ -65,7 +65,7 @@ public class MyObject : MonoBehaviour
     /// <summary>
     /// DetectedObjectCount를 외부에서 올려주는 메서드
     /// </summary>
-    public void DetectedObjectCountCountUp()
+    public void DetectedObjectCountUp()
     {
         DetectedObjectCount++;
     }
@@ -73,7 +73,7 @@ public class MyObject : MonoBehaviour
     /// <summary>
     /// DetectedObjectCount를 외부에서 내려주는 메서드
     /// </summary>
-    public void DetectedObjectCountCountDown()
+    public void DetectedObjectCountDown()
     {
         DetectedObjectCount--;
     }

@@ -29,7 +29,7 @@ public class Radar : MonoBehaviour
             }
 
             // 오브젝트가 범위 내에 들어올 때마다 상승
-            _myObject.DetectedObjectCountCountUp();
+            _myObject.DetectedObjectCountUp();
         }
     }
 
@@ -38,7 +38,7 @@ public class Radar : MonoBehaviour
         if (other.CompareTag("Object"))
         {
             // 오브젝트가 범위 내에서 사라질 때마다 하락
-            _myObject.DetectedObjectCountCountDown();
+            _myObject.DetectedObjectCountDown();
         }
     }
 }
