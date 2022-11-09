@@ -135,10 +135,37 @@ public class PlaceObject : MonoBehaviour
     public void FreeIndex(int index)
     {
         _objectUsedCount--;
+
         for (int i = index; i < _objectUsedCount; i++)
         {
             _objects[i + 1].GetComponent<MyObject>().SetIndex(i);
         }
+
         ObjectIndex = _objectUsedCount;
+    }
+
+    /// <summary>
+    /// 각 오브젝트가 감지한 오브젝트의 개수를 배열로 변환해 AnchorManager 배열에 저장하는 메서드
+    /// </summary>
+    public void SaveCountArray()
+    {
+
+        if (_objectUsedCount == 0)
+        {
+            Debug.Log("저장할 데이터가 없습니다.");
+            return;
+        }
+
+        // 현재 존재하는 오브젝트 수 만큼 배열 생성
+        int[] countArray = new int[_objectUsedCount];
+
+        for (int i = 0; i < _objectUsedCount; i++)
+        {
+            // 카운트를 배열로 저장
+            countArray[i] = _objects[i].GetComponent<MyObject>().DetectedObjectCount;
+        }
+
+        // 저장한 것을 AnchorManager로 옮김
+        AnchorManager.Instance.SaveDetectedObjectCounts(countArray);
     }
 }

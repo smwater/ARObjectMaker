@@ -776,6 +776,7 @@ GameObject:
   - component: {fileID: 608088827}
   - component: {fileID: 608088826}
   - component: {fileID: 608088825}
+  - component: {fileID: 608088828}
   m_Layer: 5
   m_Name: Save Button
   m_TagString: Untagged
@@ -846,7 +847,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 608088826}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 608088828}
+        m_TargetAssemblyTypeName: SaveButton, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &608088826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -885,6 +898,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608088823}
   m_CullTransparentMesh: 1
+--- !u!114 &608088828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608088823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3516d2a0c284c7845b92c81302856ddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _placeObject: {fileID: 1523169794}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
